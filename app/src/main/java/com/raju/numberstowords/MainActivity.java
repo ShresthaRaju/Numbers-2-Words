@@ -26,7 +26,9 @@ public class MainActivity extends AppCompatActivity {
         if (value.isEmpty()) {
             number.setError("Please enter a number!!!");
         } else {
-            result.setText(numbersToWords(Integer.parseInt(value)));
+            Number number = new Number(Integer.parseInt(value));
+
+            result.setText(numbersToWords(number.getNumber()));
             result.setVisibility(View.VISIBLE);
         }
     }
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         String[] tenToNinety = {"", " Ten", " Twenty", " Thirty", " Forty", " Fifty", " Sixty", " Seventy", " Eighty", " Ninety"};
 
-        String word = "";
+        String word;
 
         if (num == 0) {
             word = "Zero";
