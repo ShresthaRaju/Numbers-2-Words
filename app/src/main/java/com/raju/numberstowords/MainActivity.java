@@ -49,7 +49,11 @@ public class MainActivity extends AppCompatActivity {
             word = tenToNinety[num / 10] + oneToNineteen[num % 10];
         } else {
             int rem = num % 100;
-            word = oneToNineteen[num / 100] + " Hundred" + (rem > 0 && rem < 20 ? " and" + oneToNineteen[rem] : " and" + tenToNinety[rem / 10] + oneToNineteen[rem % 10]);
+            if (rem == 0) {
+                word = oneToNineteen[num / 100] + " Hundred";
+            } else {
+                word = oneToNineteen[num / 100] + " Hundred and" + (rem < 20 ? oneToNineteen[rem] : tenToNinety[rem / 10] + oneToNineteen[rem % 10]);
+            }
         }
         return word;
     }
